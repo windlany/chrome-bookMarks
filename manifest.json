@@ -1,0 +1,14 @@
+{
+    "name": "小cool书签管理器",
+    "version": "1.0",
+    "description": "小cool书签管理器，支持查看、查询、删除书签。",
+    "permissions": [
+        "bookmarks"
+    ], 
+    "browser_action": {
+        "default_title": "小cool书签管理器",
+        "default_icon": "./src/img/icon.png",
+        "default_popup": "./src/popup.html"
+    },
+    "manifest_version": 2
+}
