@@ -30,8 +30,14 @@ $(document).ready(function () {
     }
     // 展示文件
     function showFile(node) {
-        var html = `<li class="file"><a href='${node.url}' id='${node.id}'><i class="fa fa-file-o"></i><span>${node.title}</span></a><i class="edit optionBtn fa fa-edit"></i><i class="delete optionBtn fa fa-trash"></i></li>`;
-        return html;
+        var urlArr = node.url.split("/");
+        var icon = urlArr[0] + '//' + urlArr[2] + '/favicon.ico';
+
+        if(icon)
+            var html = `<li class="file"><a href='${node.url}' id='${node.id}'><img class="icon" src='${icon}'><span>${node.title}</span></a><i class="edit optionBtn fa fa-edit"></i><i class="delete optionBtn fa fa-trash"></i></li>`;
+        else 
+            var html = `<li class="file"><a href='${node.url}' id='${node.id}'><i class="fa fa-file-o"></i><span>${node.title}</span></a><i class="edit optionBtn fa fa-edit"></i><i class="delete optionBtn fa fa-trash"></i></li>`;
+            return html;
     } 
 
     function refresh() {
@@ -82,7 +88,7 @@ $(document).ready(function () {
         });
         
         // 添加文件夹
-        $("#bookmarks").on('click','.add', function(){
+        $("#bookmarks").on('click','.add', function(event){
             event.stopPropagation();
             var id = $(this).parent().parent().attr('id');
             var title = prompt("请输入文件夹名称：","新建文件夹");
@@ -133,4 +139,4 @@ $(document).ready(function () {
 	}
 
 	init();
-});
+}); 

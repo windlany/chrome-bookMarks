@@ -119,3 +119,8 @@ ul#bookmarks {
 .file:hover .optionBtn, .files:hover .optionBtn {
     top: 5px;
 }
+img.icon {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
